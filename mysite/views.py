@@ -22,5 +22,11 @@ def home(request):
         response=HttpResponse(checkSignature(request))
         return response
     else:
-        return HttpResponse('<h1>Hello,welcom to my website</h1>')
+        fromUser=request.POST['FromUserName']
+        toUser=request.POST['ToUserName']
+        CreateTime=request.POST['CreateTime']
+        MsgType=request.POST['MsgType']
+        Content=request.POST['Content']
+        MsgId=request.POST['MsgId']
+        return HttpResponse(fromUser+','+toUser+','+CreateTime+','+MsgType+','+Content+','+MsgId)
 # Create your views here.
