@@ -23,4 +23,10 @@ def index(request):
         response=HttpResponse(checkSignature(request))
         return response
     else:
-        return HttpResponse('Welcome to app index!')
+        fromUser=request.POST['FromUserName']
+        toUser=request.POST['ToUserName']
+        CreateTime=request.POST['CreateTime']
+        MsgType=request.POST['MsgType']
+        Content=request.POST['Content']
+        MsgId=request.POST['MsgId']
+        return HttpResponse(fromUser+','+toUser+','+CreateTime+','+MsgType+','+Content+','+MsgId)
